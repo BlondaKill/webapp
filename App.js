@@ -16,7 +16,7 @@ export default App
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "purple",
+    backgroundColor: "pink",
     flex:1,
   },
 text: {
