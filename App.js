@@ -5,53 +5,54 @@ import uuid from 'react-native-uuid';
 const App = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [idSelected, setIdSelected] = useState("")
-  const [newTask, setNewTask] = useState({
-    title: "",
-    description: "",
-    id:""
-  })
+  const [taskSelected, setTaskSelected] = useState({})
+  const [taskTitle, setTaskTitle] = useState("")
+  const [taskDescripcion, setTaskDescription] = useState("")
+  const [taskAlbum, setTaskAlbum] = useState("")
+  const [taskYear, setTaskYear] = useState("")
     
   const [tasks, setTasks] = useState([])
 
   const addTask = () =>{
-    setTasks([...tasks, newTask])
 
-    setNewTask({
-      title: "",
-      description: "",
-      id: ""
-    })
-    
+    const newTask = {
+      id: uuid.v4(),
+      title: taskTitle,
+      description: taskDescripcion,
+ 
+    }
+    setTasks([...tasks, newTask])
+    console.log(tasks)
+    setTaskTitle("")
+    setTaskDescription("")
+    setTaskAlbum("")
+    setTaskYear("")
   }
 
   const onHandlerArtist = (t) =>{
-    const id = uuid.v4()
-    setNewTask({...newTask, title:t, id})
+    setTaskTitle(t)
 
   }
   
 
   const onHandlerSong = (t) => {
-    setNewTask({...newTask, description:t})
+    setTaskDescription(t)
 
   }
 
   const onHandlerAlbum = (t) => {
-    setNewTask({...newTask, description:t})
+    setTaskAlbum(t)
 
   }
 
   const onHandlerYear = (t) => {
-    setNewTask({...newTask, description:t})
+    setTaskYear(t)
 
   }
 
-  const onHandlerModalDelete = (id) => {
-    setIdSelected(id)
-    setModalVisible(true)
-    
-    
+  const onHandlerModalDelete = (task) => {
+    setTaskSelected(task)
+    setModalVisible(!modalVisible) 
   }
 
   const deleteTask = () => {
@@ -65,10 +66,10 @@ const App = () => {
 
 
       <View style={styles.inputContainer}>
-        <TextInput value={newTask.title} onChangeText={onHandlerArtist} placeholder = 'Artist' style={styles.input}/>
-        <TextInput value={newTask.description} onChangeText={onHandlerSong} placeholder = 'Song' style={styles.input}/>
-        <TextInput value={newTask.album} onChangeText={onHandlerAlbum} placeholder = 'Album' style={styles.input}/>
-        <TextInput value={newTask.year} onChangeText={onHandlerYear} placeholder = 'Year' style={styles.input}/>
+        <TextInput value={taskTitle} onChangeText={onHandlerArtist} placeholder = 'Artist' style={styles.input}/>
+        <TextInput value={taskDescripcion} onChangeText={onHandlerSong} placeholder = 'Song' style={styles.input}/>
+        <TextInput value={taskAlbum} onChangeText={onHandlerAlbum} placeholder = 'Album' style={styles.input}/>
+        <TextInput value={taskYear} onChangeText={onHandlerYear} placeholder = 'Year' style={styles.input}/>
 
 
 
