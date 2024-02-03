@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import {View, Text, TextInput, Button, StyleSheet, FlatList, Modal} from 'react-native'
 import uuid from 'react-native-uuid';
+import ModalDeleteTask from './src/components/ModalDeleteTask';
 
 const App = () => {
 
@@ -89,16 +90,14 @@ const App = () => {
 
     )}  
     />
-    <Modal
-      visible={modalVisible}    
-    >
-      <View>
-        <Text>Delete Song: {taskSelected.title}?</Text>
-        <Button title='si' onPress={deleteTask}/>
-        <Button title='no' onPress={()=> onHandlerModalDelete({})}/>
-      </View>
-    </Modal>
+    
     </View>
+    <ModalDeleteTask
+      modalVisible={modalVisible}
+      taskSelected={taskSelected}
+      deleteTask={deleteTask}
+      onHandlerModalDelete={onHandlerModalDelete}
+    />
 
     </View>
   )
