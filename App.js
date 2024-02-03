@@ -93,7 +93,7 @@ const App = () => {
       visible={modalVisible}    
     >
       <View>
-        <Text>Delete Song?</Text>
+        <Text>Delete Song: {taskSelected.title}?</Text>
         <Button title='si' onPress={deleteTask}/>
         <Button title='no' onPress={()=> onHandlerModalDelete({})}/>
       </View>
