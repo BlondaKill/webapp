@@ -56,8 +56,8 @@ const App = () => {
   }
 
   const deleteTask = () => {
-    setTasks(tasks.filter(task => task.id != idSelected))
-
+    setTasks(tasks.filter(task => task.id != taskSelected.id))
+    setModalVisible(!modalVisible)
   }
 
   return (
@@ -83,8 +83,8 @@ const App = () => {
         keyExtractor={item => item.id}
         renderItem={({item}) => (
                             <View style={styles.taskCard}>
-                              <Text style={styles.text}> {item.title} </Text>
-                              <Button title= 'DEL' onPress={() => onHandlerModalDelete(item.id)}/>
+                              <Text style={styles.text}>{item.title} </Text>
+                              <Button title= 'DEL' onPress={() => onHandlerModalDelete(item)}/>
                               </View>
 
     )}  
@@ -93,12 +93,9 @@ const App = () => {
       visible={modalVisible}    
     >
       <View>
-        <Text>Delete?</Text>
-        <Button title='si' onPress={()=> {
-          deleteTask()
-          setModalVisible(false)
-          }}/>
-        <Button title='no' onPress={()=> setModalVisible(false)}/>
+        <Text>Delete Song?</Text>
+        <Button title='si' onPress={deleteTask}/>
+        <Button title='no' onPress={()=> onHandlerModalDelete({})}/>
       </View>
     </Modal>
     </View>
