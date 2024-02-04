@@ -1,8 +1,12 @@
 import { StyleSheet, Text, View, Modal, Button } from 'react-native'
 
 
-const ModalDeleteTask = (prop) => {
-    const {taskSelected, deleteTask, onHandlerModalDelete, modalVisible} = prop
+const ModalDeleteTask = ({taskSelected, 
+                        deleteTask, 
+                        onHandlerModalDelete, 
+                        modalVisible}) => {
+    
+    
     return (
             <Modal
             visible={modalVisible}    
