@@ -9,7 +9,9 @@ const ModalDeleteTask = ({taskSelected,
     
     return (
             <Modal
-            visible={modalVisible}    
+            visible={modalVisible}
+            animationType='fade' 
+            onRequestClose={() => onHandlerModalDelete({})}   
     >
                 <View>
                 <Text>Delete Song: {taskSelected.title}?</Text>
