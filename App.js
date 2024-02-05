@@ -76,18 +76,17 @@ const App = () => {
                 onHandlerYear = {onHandlerYear} 
                 addTask = {addTask}
         />
-        <ListTasks tasks = {tasks} onHandlerModalDelete={onHandlerModalDelete}/>
+        <ListTasks 
+          tasks = {tasks} 
+          onHandlerModalDelete={onHandlerModalDelete}
+          />
 
-
-      
-
-      
-    <ModalDeleteTask
-      modalVisible={modalVisible}
-      taskSelected={taskSelected}
-      deleteTask={deleteTask}
-      onHandlerModalDelete={onHandlerModalDelete}
-    />
+        <ModalDeleteTask
+          modalVisible={modalVisible}
+          taskSelected={taskSelected}
+          deleteTask={deleteTask}
+          onHandlerModalDelete={onHandlerModalDelete}
+        />
 
     </View>
   )
