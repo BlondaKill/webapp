@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {View, Text, TextInput, Button, StyleSheet, FlatList, Modal} from 'react-native'
+import {View, Text, StyleSheet, Dimensions} from 'react-native'
 import uuid from 'react-native-uuid';
 import ModalDeleteTask from './src/components/ModalDeleteTask';
 import AddTask from './src/components/AddTask';
@@ -13,7 +13,7 @@ const App = () => {
   const [taskDescripcion, setTaskDescription] = useState("")
   const [taskAlbum, setTaskAlbum] = useState("")
   const [taskYear, setTaskYear] = useState("")
-    
+  const screenWidth = Dimensions.get('window').width
   const [tasks, setTasks] = useState([])
 
   const addTask = () =>{
@@ -79,6 +79,7 @@ const App = () => {
         <ListTasks 
           tasks = {tasks} 
           onHandlerModalDelete={onHandlerModalDelete}
+          screenWidth={screenWidth}
           />
 
         <ModalDeleteTask

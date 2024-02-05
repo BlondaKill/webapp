@@ -13,25 +13,33 @@ const AddTask = ({taskTitle,
                 addTask}) => {
     return (
         <View style={styles.container}>
-            <TextInput value={taskTitle} 
+            <TextInput 
+            value={taskTitle} 
             onChangeText={onHandlerArtist}
             placeholder = 'Artist' 
             placeholderTextColor= "#5ac62b"
+            maxLength={25}
             style={styles.input}/>
-            <TextInput value={taskDescripcion} 
+            <TextInput 
+            value={taskDescripcion} 
             onChangeText={onHandlerSong} 
             placeholder = 'Song' 
             placeholderTextColor= "#5ac62b"
+            maxLength={100}
             style={styles.input}/>
-            <TextInput value={taskAlbum} 
+            <TextInput 
+            value={taskAlbum} 
             onChangeText={onHandlerAlbum} 
             placeholder = 'Album' 
             placeholderTextColor= "#5ac62b"
+            maxLength={50}
             style={styles.input}/>
-            <TextInput value={taskYear} 
+            <TextInput 
+            value={taskYear} 
             onChangeText={onHandlerYear} 
             placeholder = 'Year' 
             placeholderTextColor= "#5ac62b"
+            maxLength={4}
             style={styles.input}/>
             <PrimaryButton title="ADD" onPress={addTask}/>
             
@@ -48,11 +56,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-around",
         padding: 10
-
             },
 
     input:{
-        width: "90%",
+        width: "100%",
         borderWidth:2,
         borderColor: "#5ac62b",
         margin:10, 
@@ -61,6 +68,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: "white",
         borderRadius: 5,
+        textAlignVertical: "top"
         
         }
 

@@ -14,9 +14,9 @@ export default PrimaryButton
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "white",
-        width: "30%",
+        width: "50%",
         paddingHorizontal:10,
-        paddingVertical: 10,
+        paddingVertical: 5,
         alignItems: "center",
         padding: "center",
         borderRadius: 5,
