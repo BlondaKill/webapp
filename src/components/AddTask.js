@@ -1,4 +1,5 @@
 import { StyleSheet, TextInput, Button, View } from 'react-native'
+import PrimaryButton from './PrimaryButton'
 
 
 const AddTask = ({taskTitle, 
@@ -12,11 +13,28 @@ const AddTask = ({taskTitle,
                 addTask}) => {
     return (
         <View style={styles.container}>
-            <TextInput value={taskTitle} onChangeText={onHandlerArtist} placeholder = 'Artist' style={styles.input}/>
-            <TextInput value={taskDescripcion} onChangeText={onHandlerSong} placeholder = 'Song' style={styles.input}/>
-            <TextInput value={taskAlbum} onChangeText={onHandlerAlbum} placeholder = 'Album' style={styles.input}/>
-            <TextInput value={taskYear} onChangeText={onHandlerYear} placeholder = 'Year' style={styles.input}/>
-            <Button color="#3921F5" title = 'ADD' onPress={addTask}/>
+            <TextInput value={taskTitle} 
+            onChangeText={onHandlerArtist}
+            placeholder = 'Artist' 
+            placeholderTextColor= "#5ac62b"
+            style={styles.input}/>
+            <TextInput value={taskDescripcion} 
+            onChangeText={onHandlerSong} 
+            placeholder = 'Song' 
+            placeholderTextColor= "#5ac62b"
+            style={styles.input}/>
+            <TextInput value={taskAlbum} 
+            onChangeText={onHandlerAlbum} 
+            placeholder = 'Album' 
+            placeholderTextColor= "#5ac62b"
+            style={styles.input}/>
+            <TextInput value={taskYear} 
+            onChangeText={onHandlerYear} 
+            placeholder = 'Year' 
+            placeholderTextColor= "#5ac62b"
+            style={styles.input}/>
+            <PrimaryButton title="ADD" onPress={addTask}/>
+            
         </View>
 
     )
@@ -26,21 +44,24 @@ export default AddTask
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: "#8F2FF5",
+        backgroundColor: "black",
         alignItems: "center",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        padding: 10
+
             },
 
     input:{
         width: "90%",
         borderWidth:2,
-        borderColor: "white",
+        borderColor: "#5ac62b",
         margin:10, 
         paddingVertical:5, 
         paddingHorizontal:10,
         fontSize: 20,
-        color: "black",
+        color: "white",
         borderRadius: 5,
+        
         }
 
 
