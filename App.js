@@ -2,6 +2,8 @@ import { useState } from 'react'
 import {View, Text, TextInput, Button, StyleSheet, FlatList, Modal} from 'react-native'
 import uuid from 'react-native-uuid';
 import ModalDeleteTask from './src/components/ModalDeleteTask';
+import AddTask from './src/components/AddTask';
+import ListTasks from './src/components/ListTasks';
 
 const App = () => {
 
@@ -64,34 +66,22 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text>PLAYLIST</Text>
+      <AddTask taskTitle = {taskTitle} 
+                onHandlerArtist = {onHandlerArtist}
+                taskDescripcion = {taskDescripcion} 
+                onHandlerSong = {onHandlerSong}
+                taskAlbum = {taskAlbum} 
+                onHandlerAlbum = {onHandlerAlbum}
+                taskYear = {taskYear} 
+                onHandlerYear = {onHandlerYear} 
+                addTask = {addTask}
+        />
+        <ListTasks tasks = {tasks} onHandlerModalDelete={onHandlerModalDelete}/>
 
 
-      <View style={styles.inputContainer}>
-        <TextInput value={taskTitle} onChangeText={onHandlerArtist} placeholder = 'Artist' style={styles.input}/>
-        <TextInput value={taskDescripcion} onChangeText={onHandlerSong} placeholder = 'Song' style={styles.input}/>
-        <TextInput value={taskAlbum} onChangeText={onHandlerAlbum} placeholder = 'Album' style={styles.input}/>
-        <TextInput value={taskYear} onChangeText={onHandlerYear} placeholder = 'Year' style={styles.input}/>
+      
 
-
-
-        <Button color="#3921F5" title = 'ADD' onPress={addTask}/>
-      </View>
-
-
-      <View style={styles.tasksContainer}>
-      <FlatList
-        data={tasks}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-                            <View style={styles.taskCard}>
-                              <Text style={styles.text}>{item.title} </Text>
-                              <Button title= 'DEL' onPress={() => onHandlerModalDelete(item)}/>
-                              </View>
-
-    )}  
-    />
-    
-    </View>
+      
     <ModalDeleteTask
       modalVisible={modalVisible}
       taskSelected={taskSelected}
@@ -111,35 +101,6 @@ const styles = StyleSheet.create({
     flex:1, 
     paddingTop:30
   },
-  inputContainer:{
-    backgroundColor: "#8F2FF5",
-    alignItems: "center",
-    justifyContent: "space-around"
-
-  },
-  input:{
-    width: 250,
-    borderBottomWidth:2,
-    borderColor: "white",
-    margin:10, 
-    paddingVertical:5, 
-    paddingHorizontal:10
-  },
-  tasksContainer:{
-    padding: 10,
-
-  },
-  taskCard:{
-    flexDirection: "row",
-    backgroundColor: "#8F2FF5",
-    padding: 20,
-    marginVertical: 10,
-    alignItems: "center",
-    borderRadius: 5,
-  },
-  text:{
-    width: "70%",
-    color: "white",
-    fontSize: 16,
-  }
+  
+  
 })
