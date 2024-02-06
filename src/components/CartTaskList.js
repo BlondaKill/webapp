@@ -7,12 +7,12 @@ const CartTaskList = ({item, onHandlerModalDelete, screenWidth, updateTaskComple
             <View style={[styles.taskCard, {width:screenWidth -60}]}>
                 <Text style={styles.text}>Artist: {item.title} </Text>
                 <Text style={styles.text}>Song: {item.description} </Text>
-                <View style={completedContainer}>
+                <View>
                     <Switch 
                         value={item.completed} 
                         onValueChange={() =>updateTaskCompleted (item.id)}
                     />
-                    <Text style={styles.textCompleted}>{item.completed ? "Dowload" : "No"}</Text>
+                    <Text style={styles.textCompleted}>Download{item.completed}</Text>
             </View>
                 <PrimaryButton title= 'DEL' onPress={() => onHandlerModalDelete(item)}/>
             </View>
@@ -36,13 +36,7 @@ const styles = StyleSheet.create({
         color: "#5ac62b",
         fontSize: 20,
         },
-    completedContainer: {
-        width:"100%",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        gap: 15
-        },
+    
     textCompleted: {
         color: "white",
         fontSize: 16,
