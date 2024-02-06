@@ -2,11 +2,11 @@ import { Pressable, StyleSheet, Text} from 'react-native'
 
 
 const PrimaryButton = ({title, onPress}) => {
-  return (
+    return (
     <Pressable  style={styles.container} onPress={onPress}>
-      <Text style={styles.text}>{title}</Text>
+        <Text style={styles.text}>{title}</Text>
     </Pressable>
-  )
+    )
 }
 
 export default PrimaryButton

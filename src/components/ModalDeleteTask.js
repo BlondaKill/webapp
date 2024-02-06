@@ -5,21 +5,19 @@ const ModalDeleteTask = ({taskSelected,
                         deleteTask, 
                         onHandlerModalDelete, 
                         modalVisible}) => {
-    
-    
-    return (
-            <Modal
-            visible={modalVisible}
-            animationType='fade' 
-            onRequestClose={() => onHandlerModalDelete({})}   
-    >
+        return (
+                <Modal
+                visible={modalVisible}
+                animationType='fade' 
+                onRequestClose={() => onHandlerModalDelete({})}   
+        >
                 <View>
                 <Text>Delete Song: {taskSelected.title}?</Text>
                 <Button title='si' onPress={deleteTask}/>
                 <Button title='no' onPress={()=> onHandlerModalDelete({})}/>
                 </View>
-            </Modal>
-    )
+                </Modal>
+        )
 }
 
 export default ModalDeleteTask
