@@ -4,7 +4,7 @@ import PrimaryButton from './PrimaryButton'
 
 const CartTaskList = ({item, onHandlerModalDelete, screenWidth}) => {
     return (
-            <View style={[styles.taskCard, {width:screenWidth -40}]}>
+            <View style={[styles.taskCard, {width:screenWidth -90}]}>
                 <Text style={styles.text}>Artist: {item.title} </Text>
                 <Text style={styles.text}>Song: {item.description} </Text>
                 <PrimaryButton title= 'DEL' onPress={() => onHandlerModalDelete(item)}/>
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     taskCard:{
         backgroundColor: "black",
         padding: 20,
+        marginHorizontal: 10,
         marginVertical: 10,
         alignItems: "flex-start",
         borderRadius: 5,
