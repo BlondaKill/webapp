@@ -19,28 +19,29 @@ const AddTask = ({taskTitle,
             placeholder = 'Artist' 
             placeholderTextColor= "#5ac62b"
             maxLength={25}
-            style={styles.input}/>
+            style={styles.input}
+            />
             <TextInput 
-            value={taskDescripcion} 
-            onChangeText={onHandlerSong} 
-            placeholder = 'Song' 
-            placeholderTextColor= "#5ac62b"
-            maxLength={100}
-            style={styles.input}/>
+                value={taskDescripcion} 
+                onChangeText={onHandlerSong} 
+                placeholder = 'Song' 
+                placeholderTextColor= "#5ac62b"
+                maxLength={100}
+                style={styles.input}/>
             <TextInput 
-            value={taskAlbum} 
-            onChangeText={onHandlerAlbum} 
-            placeholder = 'Album' 
-            placeholderTextColor= "#5ac62b"
-            maxLength={50}
-            style={styles.input}/>
+                value={taskAlbum} 
+                onChangeText={onHandlerAlbum} 
+                placeholder = 'Album' 
+                placeholderTextColor= "#5ac62b"
+                maxLength={50}
+                style={styles.input}/>
             <TextInput 
-            value={taskYear} 
-            onChangeText={onHandlerYear} 
-            placeholder = 'Year' 
-            placeholderTextColor= "#5ac62b"
-            maxLength={4}
-            style={styles.input}/>
+                value={taskYear} 
+                onChangeText={onHandlerYear} 
+                placeholder = 'Year' 
+                placeholderTextColor= "#5ac62b"
+                maxLength={4}
+                style={styles.input}/>
             <PrimaryButton title="ADD" onPress={addTask}/>
             
         </View>

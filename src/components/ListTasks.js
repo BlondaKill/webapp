@@ -2,10 +2,10 @@ import { StyleSheet,View, FlatList} from 'react-native'
 import CartTaskList from './CartTaskList'
 
 
-const ListTasks = ({tasks, onHandlerModalDelete, screenWidth}) => {
+const ListTasks = ({tasks, onHandlerModalDelete, screenWidth, updateTaskCompleted}) => {
     return (
         <View style={styles.tasksContainer}>
-        <FlatList
+            <FlatList
             horizontal={true}
             pagingEnabled={true}
             data={tasks}
@@ -14,6 +14,7 @@ const ListTasks = ({tasks, onHandlerModalDelete, screenWidth}) => {
                                             item={item}
                                             onHandlerModalDelete={onHandlerModalDelete}
                                             screenWidth={screenWidth}
+                                            updateTaskCompleted={updateTaskCompleted}
                                             />)}
         />
         

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {View, Text, StyleSheet, Dimensions} from 'react-native'
+import {View, Text, StyleSheet, Dimensions, Keyboard} from 'react-native'
 import uuid from 'react-native-uuid';
 import ModalDeleteTask from './src/components/ModalDeleteTask';
 import AddTask from './src/components/AddTask';
@@ -20,16 +20,17 @@ const App = () => {
 
     const newTask = {
       id: uuid.v4(),
+      completed: false,
       title: taskTitle,
       description: taskDescripcion,
  
     }
     setTasks([...tasks, newTask])
-    console.log(tasks)
     setTaskTitle("")
     setTaskDescription("")
     setTaskAlbum("")
     setTaskYear("")
+    Keyboard.dismiss()
   }
 
   const onHandlerArtist = (t) =>{
@@ -37,7 +38,6 @@ const App = () => {
 
   }
   
-
   const onHandlerSong = (t) => {
     setTaskDescription(t)
 
@@ -63,6 +63,13 @@ const App = () => {
     setModalVisible(!modalVisible)
   }
 
+  const updateTaskCompleted = (id) => {
+    setTasks(tasks.map(task =>{
+      if (task.id === id) return {...task,...{completed:!task.completed}}
+      return task
+    }))
+  }
+
   return (
     <View style={styles.container}>
       <Text>PLAYLIST</Text>
@@ -80,6 +87,7 @@ const App = () => {
           tasks = {tasks} 
           onHandlerModalDelete={onHandlerModalDelete}
           screenWidth={screenWidth}
+          updateTaskCompleted={updateTaskCompleted}
           />
 
         <ModalDeleteTask

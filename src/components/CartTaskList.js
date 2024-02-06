@@ -1,12 +1,19 @@
-import { StyleSheet, Text, View} from 'react-native'
+import { StyleSheet, Text, View, Switch} from 'react-native'
 import PrimaryButton from './PrimaryButton'
 
 
-const CartTaskList = ({item, onHandlerModalDelete, screenWidth}) => {
+const CartTaskList = ({item, onHandlerModalDelete, screenWidth, updateTaskCompleted}) => {
     return (
             <View style={[styles.taskCard, {width:screenWidth -60}]}>
                 <Text style={styles.text}>Artist: {item.title} </Text>
                 <Text style={styles.text}>Song: {item.description} </Text>
+                <View style={completedContainer}>
+                    <Switch 
+                        value={item.completed} 
+                        onValueChange={() =>updateTaskCompleted (item.id)}
+                    />
+                    <Text style={styles.textCompleted}>{item.completed ? "Dowload" : "No"}</Text>
+            </View>
                 <PrimaryButton title= 'DEL' onPress={() => onHandlerModalDelete(item)}/>
             </View>
     )
@@ -28,5 +35,18 @@ const styles = StyleSheet.create({
         width: "100%",
         color: "#5ac62b",
         fontSize: 20,
-        }
+        },
+    completedContainer: {
+        width:"100%",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        gap: 15
+        },
+    textCompleted: {
+        color: "white",
+        fontSize: 16,
+        fontWeight: "bold"
+    }        
+
 })
